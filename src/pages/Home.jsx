@@ -68,7 +68,6 @@ const Home = ({ darkMode, toggleDarkMode }) => {
   useEffect(() => {
     localStorage.setItem('taskflow-projects', JSON.stringify(projects));
   }, [projects]);
-  }, [activeBoardId]);
 
   const SunIcon = getIcon('Sun');
     
