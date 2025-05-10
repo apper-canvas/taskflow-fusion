@@ -155,7 +155,7 @@ const Home = ({ darkMode, toggleDarkMode }) => {
                 className="btn btn-primary"
               >
                 <PlusIcon className="h-4 w-4 mr-2" />
-                Add Board
+                Add New Board
               </button>
             </div>
           </div>
