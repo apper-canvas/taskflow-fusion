@@ -153,7 +153,6 @@ const Home = ({ darkMode, toggleDarkMode }) => {
 
   const addNewBoard = (e) => {
     e?.preventDefault();
-      toast.error('Please select a project');
     if (!newBoardTitle.trim()) {
       toast.error('Please enter a board title');
       return;
@@ -171,13 +170,6 @@ const Home = ({ darkMode, toggleDarkMode }) => {
       background: 'bg-gradient-to-r from-green-400 to-cyan-500'
     };
 
-    setBoards([...boards, newBoard]);
-      icon: '📋'
-    };
-    
-    const updatedProjects = projects.map(project => {
-    
-    toast.success('New board created!', {
     const updatedProjects = projects.map(project => {
       if (project.id === newBoardProjectId) {
         return {
@@ -186,13 +178,17 @@ const Home = ({ darkMode, toggleDarkMode }) => {
         };
       }
       return project;
-
-    
-    setActiveBoardId(newBoard.id);
     });
+  
+    setActiveBoardId(newBoard.id);
+    setProjects(updatedProjects);
     setNewBoardTitle('');
     setNewBoardProjectId(null);
     setShowCreateBoardModal(false);
+    
+    toast.success('New board created!', {
+      icon: '📋'
+    });
   };
 
   return (
