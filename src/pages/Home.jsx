@@ -64,7 +64,8 @@ const Home = ({ darkMode, toggleDarkMode }) => {
   useEffect(() => {
     localStorage.setItem('taskflow-boards', JSON.stringify(boards));
   }, [boards]);
-  
+
+  useEffect(() => {
     localStorage.setItem('taskflow-projects', JSON.stringify(projects));
   }, [projects]);
   }, [activeBoardId]);
