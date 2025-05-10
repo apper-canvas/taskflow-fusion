@@ -8,7 +8,7 @@
   body {
     @apply antialiased text-surface-800 dark:text-surface-100 
     min-h-screen transition-colors duration-150
-    bg-gradient-to-br from-surface-50 to-surface-200 dark:from-surface-800 dark:to-surface-900;
+    bg-gradient-to-br from-primary-light/10 to-surface-200 dark:from-primary-dark/20 dark:to-surface-900;
   }
 
   h1, h2, h3, h4, h5, h6 {
