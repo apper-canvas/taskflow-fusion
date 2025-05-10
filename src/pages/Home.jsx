@@ -85,17 +85,14 @@ const Home = ({ darkMode, toggleDarkMode }) => {
       setExpandedProjects(initialExpandedState);
   const MoonIcon = getIcon('Moon');
   const MenuIcon = getIcon('Menu');
+  const FolderIcon = getIcon('Folder');
+  const XIcon = getIcon('X');
   const PlusIcon = getIcon('Plus');
   const LogOutIcon = getIcon('LogOut');
   const SettingsIcon = getIcon('Settings');
   const BoardIcon = getIcon('Kanban');
   const ChevronDownIcon = getIcon('ChevronDown');
-
-  const addNewBoard = () => {
-    const newBoard = {
-  const FolderIcon = getIcon('Folder');
-  const XIcon = getIcon('X');
-      id: `board-${Date.now()}`,
+  const ChevronRightIcon = getIcon('ChevronRight');
   const ChevronRightIcon = getIcon('ChevronRight');
 
   const findActiveBoard = () => {
@@ -146,10 +143,18 @@ const Home = ({ darkMode, toggleDarkMode }) => {
       icon: '📁',
     });
   };
-      title: `New Board`,
+    
+    if (!newBoardTitle.trim()) {
+      toast.error('Please enter a board title');
+      return;
+    }
+    
+    if (!newBoardProjectId) {
+  };
+
   const addNewBoard = (e) => {
     e?.preventDefault();
-    
+      toast.error('Please select a project');
     if (!newBoardTitle.trim()) {
       toast.error('Please enter a board title');
       return;
@@ -159,12 +164,19 @@ const Home = ({ darkMode, toggleDarkMode }) => {
       toast.error('Please select a project');
       return;
     }
-    
-      background: 'bg-gradient-to-r from-green-400 to-cyan-500',
-    };
+
+    const newBoard = {
+      id: `board-${Date.now()}`,
       title: newBoardTitle,
+      createdAt: new Date().toISOString(),
+      background: 'bg-gradient-to-r from-green-400 to-cyan-500'
+    };
+
     setBoards([...boards, newBoard]);
-    setActiveBoardId(newBoard.id);
+      icon: '📋'
+    });
+
+    const updatedProjects = projects.map(project => {
     
     toast.success('New board created!', {
     const updatedProjects = projects.map(project => {
@@ -175,21 +187,20 @@ const Home = ({ darkMode, toggleDarkMode }) => {
         };
       }
       return project;
-    });
+
     
-    setProjects(updatedProjects);
+    setActiveBoardId(newBoard.id);
     });
     setNewBoardTitle('');
     setNewBoardProjectId(null);
     setShowCreateBoardModal(false);
   };
 
-      icon: '📋'
-
   return (
-    <div className="min-h-screen flex flex-col">
+
   const toggleProjectExpanded = (projectId) => {
     setExpandedProjects({
+      ...expandedProjects,
       ...expandedProjects,
       [projectId]: !expandedProjects[projectId]
     });
@@ -246,9 +257,8 @@ const Home = ({ darkMode, toggleDarkMode }) => {
                     >
                       onClick={() => setShowCreateProjectModal(true)}
                       New Board
-                    </button>
-                    <button
-                      New Project
+                      className="flex items-center w-full px-4 py-2 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-700"
+                    >
                     </button>
                     <button
                       onClick={() => {
