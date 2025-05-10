@@ -191,15 +191,15 @@ const Home = ({ darkMode, toggleDarkMode }) => {
     });
   };
 
-  return (
-
   const toggleProjectExpanded = (projectId) => {
     setExpandedProjects({
-      ...expandedProjects,
       ...expandedProjects,
       [projectId]: !expandedProjects[projectId]
     });
   };
+
+  return (
+
       <header className="bg-white dark:bg-surface-800 border-b border-surface-200 dark:border-surface-700 shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
