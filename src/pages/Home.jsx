@@ -173,8 +173,8 @@ const Home = ({ darkMode, toggleDarkMode }) => {
 
     setBoards([...boards, newBoard]);
       icon: '📋'
-    });
-
+    };
+    
     const updatedProjects = projects.map(project => {
     
     toast.success('New board created!', {
