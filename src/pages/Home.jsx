@@ -93,7 +93,6 @@ const Home = ({ darkMode, toggleDarkMode }) => {
   const BoardIcon = getIcon('Kanban');
   const ChevronDownIcon = getIcon('ChevronDown');
   const ChevronRightIcon = getIcon('ChevronRight');
-  const ChevronRightIcon = getIcon('ChevronRight');
 
   const findActiveBoard = () => {
     for (const project of projects) {
